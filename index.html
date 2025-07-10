@@ -8,90 +8,76 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      width: 100%;
-      height: 100%;
+    body {
+      margin: 0;
+      padding: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #000;
+      background: #000;
       color: #fff;
       overflow: hidden;
     }
 
-    .youtube-bg {
+    .video-bg {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
       z-index: -1;
-      pointer-events: none;
+      filter: blur(4px) brightness(0.6);
     }
 
-    .youtube-bg iframe {
+    .container {
+      position: relative;
       width: 100vw;
       height: 100vh;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.4);
       padding: 20px;
-      box-sizing: border-box;
     }
 
     header img {
-      width: 100px;
+      width: 120px;
       border-radius: 20%;
       margin-bottom: 10px;
     }
 
     header h1 {
-      font-size: 2.5em;
+      font-size: 3em;
       color: #0ff;
       text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-      margin: 10px 0 20px;
+      margin: 0;
     }
 
     .section {
       max-width: 800px;
-      margin: 0 auto;
-      padding: 0 20px;
+      margin-top: 20px;
     }
 
     .section h2 {
       font-size: 1.5em;
-      margin-bottom: 10px;
-    }
-
-    .section p {
-      font-size: 1em;
-      margin-bottom: 20px;
     }
 
     .cta {
       background: #0ff;
       color: #000;
       padding: 15px 30px;
-      font-size: 1.1em;
+      font-size: 1.2em;
       border: none;
       border-radius: 10px;
       cursor: pointer;
       box-shadow: 0 0 20px #0ff;
       text-decoration: none;
-      transition: 0.3s ease-in-out;
+      margin-top: 20px;
       display: inline-block;
+      transition: 0.3s;
     }
 
     .cta:hover {
@@ -100,54 +86,22 @@
     }
 
     footer {
-      margin-top: 40px;
+      margin-top: 30px;
       font-size: 0.8em;
       color: #ccc;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2em;
-      }
-      .section h2 {
-        font-size: 1.3em;
-      }
-      .section p {
-        font-size: 0.95em;
-      }
-      .cta {
-        font-size: 1em;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Fondo de video YouTube -->
-  <div class="youtube-bg">
-    <iframe
-      src="https://www.youtube.com/embed/0W1Q1QOFeKs?autoplay=1&mute=1&controls=0&loop=1&playlist=0W1Q1QOFeKs&modestbranding=1&rel=0&showinfo=0"
-      frameborder="0"
-      allowfullscreen
-      allow="autoplay"
-    ></iframe>
-  </div>
+  <!-- Video de fondo -->
+  <video autoplay muted loop playsinline class="video-bg">
+    <source src="TU LE DA - HUAN62 X LITTLE HOMIE (VIDEO OFICIAL).mp4" type="video/mp4" />
+    Tu navegador no soporta video HTML5.
+  </video>
 
-  <!-- Audio -->
-  <audio id="music" autoplay loop>
-    <source src="musica.mp3" type="audio/mpeg" />
-  </audio>
-
-  <script>
-    // Activa la música al primer clic si está bloqueada
-    window.addEventListener('click', () => {
-      const music = document.getElementById('music');
-      music.play().catch(() => {});
-    });
-  </script>
-
-  <!-- Contenido -->
-  <div class="overlay">
+  <!-- Contenido principal -->
+  <div class="container">
     <header>
       <img src="static.png" alt="Logo MantaMods" />
       <h1>🔥 MantaMods 🔥</h1>
@@ -155,7 +109,11 @@
 
     <div class="section">
       <h2>Bienvenido a la comunidad más potente de mods para SA-MP</h2>
-      <p>Únete a nuestro Discord para explorar mods y modificaciones extremas que harán brillar tu GTA. También puedes hacer amigos nuevos y adentrarte en todos los sistemas que tenemos. ¡Aquí los mods son únicos!</p>
+      <p>
+        Únete a nuestro Discord para explorar mods y modificaciones extremas que harán brillar tu GTA.
+        También puedes hacer amigos nuevos y adentrarte en todos los sistemas que tenemos.
+        ¡Aquí los mods son únicos!
+      </p>
       <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 ÚNETE AL DISCORD</a>
     </div>
 
