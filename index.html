@@ -112,15 +112,16 @@
             allowfullscreen></iframe>
   </div>
 
-  <!-- Capa de oscurecimiento -->
+  <!-- Capa oscura encima del video -->
   <div class="overlay"></div>
 
-  <!-- Reproducción automática del MP3 -->
+  <!-- Reproducción automática del audio -->
   <audio id="bg-audio" autoplay loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
+    <source src="musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio.
+  </audio>
 
-  <!-- Contenido -->
+  <!-- Contenido principal -->
   <header>
     <img src="static.png" alt="Logo MantaMods">
     <h1>🔥 MantaMods 🔥</h1>
@@ -136,5 +137,19 @@
   <footer>
     © 2025 MantaMods. Todos los derechos reservados.
   </footer>
+
+  <!-- Script para forzar reproducción automática -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('bg-audio');
+      const tryPlay = () => {
+        audio.play().catch(() => {
+          console.log("Reproducción automática bloqueada. Se necesita interacción.");
+        });
+      };
+      tryPlay();
+      document.addEventListener('click', tryPlay);
+    });
+  </script>
 </body>
 </html>
