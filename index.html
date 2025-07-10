@@ -2,119 +2,140 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MantaMods - Servidor Discord</title>
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
-    body, html {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Orbitron', sans-serif;
       color: #fff;
       text-align: center;
-      height: 100%;
+      overflow-x: hidden;
+    }
+
+    .video-fondo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
       overflow: hidden;
     }
 
-    .video-bg {
-      position: fixed;
-      top: 0; left: 0;
+    .video-fondo iframe {
       width: 100%;
       height: 100%;
-      z-index: -1;
       pointer-events: none;
     }
 
-    .video-bg iframe {
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100vw;
-      height: 56.25vw; /* 16:9 aspect ratio */
-      min-height: 100vh;
-      min-width: 177.77vh; /* 16:9 aspect ratio */
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
     }
 
-    .content {
-      position: relative;
-      z-index: 1;
-      padding: 40px 20px;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
+    header {
+      padding: 30px 20px 20px;
     }
 
     header img {
       width: 120px;
       border-radius: 20%;
+      margin-bottom: 10px;
     }
 
-    h1 {
-      color: #0ff;
+    header h1 {
       font-size: 3em;
-      text-shadow: 0 0 10px #0ff;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+
+    .section {
+      margin: 40px auto;
+      max-width: 800px;
+      padding: 0 20px;
     }
 
     .cta {
       background: #0ff;
       color: #000;
       padding: 15px 30px;
-      border-radius: 10px;
-      text-decoration: none;
       font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
       box-shadow: 0 0 20px #0ff;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
       display: inline-block;
       margin-top: 20px;
     }
 
     .cta:hover {
       background: #0cc;
+      box-shadow: 0 0 30px #0ff;
+    }
+
+    footer {
+      font-size: 0.8em;
+      padding: 30px;
+      color: #888;
     }
 
     img.feature {
       max-width: 100%;
       border-radius: 15px;
-      box-shadow: 0 0 20px #0ff4;
+      box-shadow: 0 0 20px #0ff3;
       margin-top: 20px;
-    }
-
-    footer {
-      margin-top: 40px;
-      color: #ccc;
-      font-size: 0.8em;
     }
   </style>
 </head>
 <body>
 
-  <!-- Video fondo -->
-  <div class="video-bg">
+  <!-- Video de fondo -->
+  <div class="video-fondo">
     <iframe src="https://www.youtube.com/embed/0W1Q1QOFeKs?autoplay=1&mute=1&controls=0&loop=1&playlist=0W1Q1QOFeKs"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-    </iframe>
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen></iframe>
   </div>
 
-  <!-- Contenido -->
-  <div class="content">
-    <header>
-      <img src="static.png" alt="Logo MantaMods" />
-      <h1>🔥 MantaMods 🔥</h1>
-    </header>
+  <!-- Capa de oscurecimiento -->
+  <div class="overlay"></div>
 
+  <!-- Reproducción automática del MP3 -->
+  <audio autoplay loop>
+    <source src="TU%20LE%20DA%20-%20HUAN62%20X%20LITTLE%20HOMIE%20(VIDEO%20OFICIAL).mp3" type="audio/mpeg" />
+    Tu navegador no soporta el audio.
+  </audio>
+
+  <!-- Contenido -->
+  <header>
+    <img src="static.png" alt="Logo MantaMods">
+    <h1>🔥 MantaMods 🔥</h1>
+  </header>
+
+  <div class="section">
     <h2>Bienvenido a la comunidad más potente de mods y rol</h2>
     <p>Únete a nuestro servidor para explorar mods, hacer nuevos amigos y vivir la mejor experiencia roleplay. ¡Aquí la diversión no tiene límites!</p>
     <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 ÚNETE A DISCORD</a>
-    <br>
-    <img src="standard.gif" alt="Banner servidor" class="feature">
-
-    <footer>
-      © 2025 MantaMods. Todos los derechos reservados.
-    </footer>
+    <img src="e1ea5318-a90c-4bed-bab4-a5de9ba55e12.png" alt="Banner servidor" class="feature">
   </div>
 
+  <footer>
+    © 2025 MantaMods. Todos los derechos reservados.
+  </footer>
 </body>
 </html>
