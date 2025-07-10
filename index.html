@@ -57,6 +57,17 @@
       margin-bottom: 10px;
     }
 
+    /* Animación de pulso para el logo */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    .logo-animado {
+      animation: pulse 2s infinite;
+    }
+
     header h1 {
       font-size: 3em;
       color: #0ff;
@@ -131,7 +142,7 @@
   <!-- Contenido principal -->
   <div class="container">
     <header>
-      <img src="static.png" alt="Logo MantaMods" />
+      <img src="static.png" alt="Logo MantaMods" class="logo-animado" />
       <h1>🔥MantaMods🔥</h1>
     </header>
 
