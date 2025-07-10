@@ -157,6 +157,28 @@
       text-align: left;
     }
 
+    #startBtn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 30px;
+      font-size: 1.2em;
+      z-index: 10;
+      background: #0ff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #0ff;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      #startBtn {
+        display: none;
+      }
+    }
+
     footer {
       margin-top: 30px;
       font-size: 0.8em;
@@ -165,6 +187,9 @@
   </style>
 </head>
 <body>
+
+  <!-- Botón de iniciar para móviles -->
+  <button id="startBtn" onclick="startMedia()">▶️ Tocar para iniciar</button>
 
   <!-- Video de fondo -->
   <video id="bg-video" autoplay muted loop playsinline class="video-bg">
@@ -181,35 +206,22 @@
     const music = document.getElementById('music');
     const video = document.getElementById('bg-video');
 
-    window.addEventListener('DOMContentLoaded', () => {
-      // Reproducir música y video tras interacción en móviles
-      music.play().catch(() => {
-        const enableMedia = () => {
-          music.play().catch(() => {});
-          video.play().catch(() => {});
-          window.removeEventListener('click', enableMedia);
-          window.removeEventListener('touchstart', enableMedia);
-        };
-        window.addEventListener('click', enableMedia);
-        window.addEventListener('touchstart', enableMedia);
-      });
-
-      // Forzar reproducción del video en móviles
-      video.play().catch(() => {
-        const playVideo = () => {
-          video.play().catch(() => {});
-          window.removeEventListener('click', playVideo);
-          window.removeEventListener('touchstart', playVideo);
-        };
-        window.addEventListener('click', playVideo);
-        window.addEventListener('touchstart', playVideo);
-      });
-    });
+    function startMedia() {
+      music.play().catch(() => {});
+      video.play().catch(() => {});
+      document.getElementById('startBtn').style.display = 'none';
+    }
 
     function toggleRules() {
       const box = document.getElementById('rules-box');
       box.style.display = box.style.display === 'block' ? 'none' : 'block';
     }
+
+    // Intenta iniciar en PC automáticamente
+    window.addEventListener('DOMContentLoaded', () => {
+      video.play().catch(() => {});
+      music.play().catch(() => {});
+    });
   </script>
 
   <!-- Redes Sociales -->
