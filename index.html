@@ -17,46 +17,41 @@
       width: 100%;
       height: 100%;
       font-family: 'Poppins', sans-serif;
-      overflow: hidden;
       background: #000;
       color: #fff;
     }
 
-    body {
-      position: relative;
-    }
-
-    .video-bg {
+    .video-container {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
       height: 100vh;
+      width: 100vw;
       overflow: hidden;
       z-index: -1;
     }
 
-    .video-bg iframe {
+    .video-container iframe {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      min-width: 100vw;
-      min-height: 100vh;
+      height: 120%;
+      width: 120%;
       pointer-events: none;
     }
 
     .overlay {
       position: relative;
+      z-index: 1;
       height: 100vh;
-      width: 100vw;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       text-align: center;
       padding: 20px;
-      backdrop-filter: brightness(0.5) blur(3px);
+      background-color: rgba(0, 0, 0, 0.6);
     }
 
     header img {
@@ -125,9 +120,9 @@
 </head>
 <body>
 
-  <!-- Fondo de video -->
-  <div class="video-bg">
-    <iframe
+  <!-- Video de fondo -->
+  <div class="video-container">
+    <iframe 
       src="https://www.youtube.com/embed/0W1Q1QOFeKs?autoplay=1&mute=1&controls=0&loop=1&playlist=0W1Q1QOFeKs&modestbranding=1&rel=0"
       frameborder="0"
       allow="autoplay; fullscreen"
@@ -141,13 +136,13 @@
   </audio>
 
   <script>
-    // Reproduce música tras la primera interacción si es necesario
+    // Intentar reproducir música tras interacción
     window.addEventListener('click', () => {
       document.getElementById('music').play().catch(() => {});
     });
   </script>
 
-  <!-- Contenido principal -->
+  <!-- Contenido -->
   <div class="overlay">
     <header>
       <img src="static.png" alt="Logo MantaMods" />
@@ -157,7 +152,7 @@
     <div class="section">
       <h2>Bienvenido a la comunidad más potente de mods</h2>
       <p>Únete a nuestro servidor para explorar mods, hacer nuevos amigos y vivir la mejor experiencia. ¡Aquí la diversión no tiene límites!</p>
-      <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 ÚNETE AL DISCORD</a>
+      <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 ÚNETE A DISCORD</a>
     </div>
 
     <footer>© 2025 MantaMods. Todos los derechos reservados.</footer>
