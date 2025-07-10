@@ -96,11 +96,24 @@
 
   <!-- Video de fondo -->
   <video autoplay muted loop playsinline class="video-bg">
-    <source src="TU LE DA - HUAN62 X LITTLE HOMIE (VIDEO OFICIAL).mp4" type="video/mp4" />
+    <source src="tu-le-da.mp4" type="video/mp4" />
     Tu navegador no soporta video HTML5.
   </video>
 
-  <!-- Contenido principal -->
+  <!-- Música de fondo -->
+  <audio id="music" autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    // Reproducir música tras la primera interacción (por bloqueo del navegador)
+    window.addEventListener('click', () => {
+      const music = document.getElementById('music');
+      music.play().catch(() => {});
+    });
+  </script>
+
+  <!-- Contenido -->
   <div class="container">
     <header>
       <img src="static.png" alt="Logo MantaMods" />
