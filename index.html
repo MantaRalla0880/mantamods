@@ -139,11 +139,12 @@
       box-shadow: 0 0 15px #0ff;
       margin-top: 15px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
 
     .rules-btn:hover {
       background: #00c9c9;
+      box-shadow: 0 0 25px #0ff;
     }
 
     .rules-box {
@@ -171,6 +172,13 @@
       border-radius: 10px;
       box-shadow: 0 0 15px #0ff;
       cursor: pointer;
+      animation: pulseBtn 1.5s infinite ease-in-out;
+    }
+
+    @keyframes pulseBtn {
+      0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 10px #0ff; }
+      50% { transform: translate(-50%, -50%) scale(1.05); box-shadow: 0 0 20px #0ff; }
+      100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 10px #0ff; }
     }
 
     @media (min-width: 768px) {
@@ -217,7 +225,6 @@
       box.style.display = box.style.display === 'block' ? 'none' : 'block';
     }
 
-    // Intenta iniciar en PC automáticamente
     window.addEventListener('DOMContentLoaded', () => {
       video.play().catch(() => {});
       music.play().catch(() => {});
