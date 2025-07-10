@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MantaMods - Servidor Discord</title>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
-    body {
+    body, html {
       margin: 0;
+      padding: 0;
       font-family: 'Orbitron', sans-serif;
-      background: radial-gradient(#0c0c0c, #1a1a1a);
       color: #fff;
       text-align: center;
-      overflow-x: hidden;
+      height: 100%;
+      overflow: hidden;
     }
 
-    header {
-      background: #111;
-      padding: 30px 20px 60px;
-      background-image: url("standard.gif");
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 0 40px #0ff4;
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
     }
 
     header img {
@@ -39,11 +50,74 @@
       margin: 0;
     }
 
-    .section {
-      margin: 40px auto;
-      max-width: 800px;
-      padding: 0 20px;
+    h2 {
+      margin-top: 30px;
+      color: #fff;
     }
 
     .cta {
-      background: #0ff
+      background: #0ff;
+      color: #000;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #0ff;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .cta:hover {
+      background: #0cc;
+      box-shadow: 0 0 30px #0ff;
+    }
+
+    img.feature {
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #0ff3;
+      margin-top: 20px;
+    }
+
+    footer {
+      font-size: 0.8em;
+      padding: 30px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fondo de video -->
+  <iframe
+    class="background-video"
+    src="https://www.youtube.com/embed/0W1Q1QOFeKs?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=0W1Q1QOFeKs"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <header>
+      <img src="static.png" alt="Logo MantaMods" />
+      <h1>🔥 MantaMods 🔥</h1>
+    </header>
+
+    <div class="section">
+      <h2>Bienvenido a la comunidad más potente de mods y rol</h2>
+      <p>Únete a nuestro servidor para explorar mods, hacer nuevos amigos y vivir la mejor experiencia roleplay. ¡Aquí la diversión no tiene límites!</p>
+      <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 ÚNETE A DISCORD</a>
+      <br />
+      <img src="standard.gif" alt="Banner servidor" class="feature" />
+    </div>
+
+    <footer>
+      © 2025 MantaMods. Todos los derechos reservados.
+    </footer>
+  </div>
+</body>
+</html>
