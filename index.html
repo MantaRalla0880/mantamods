@@ -8,9 +8,9 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
     * {
-      box-sizing: border-box;
-      padding: 0;
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     html, body {
@@ -22,34 +22,41 @@
       color: #fff;
     }
 
+    body {
+      position: relative;
+    }
+
     .video-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
+      overflow: hidden;
       z-index: -1;
-      pointer-events: none;
     }
 
     .video-bg iframe {
-      width: 100vw;
-      height: 100vh;
-      border: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100vw;
+      min-height: 100vh;
+      pointer-events: none;
     }
 
     .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(4px) brightness(0.6);
+      position: relative;
+      height: 100vh;
+      width: 100vw;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 20px;
+      backdrop-filter: brightness(0.5) blur(3px);
     }
 
     header img {
@@ -92,23 +99,22 @@
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
+      margin-top: 40px;
       font-size: 0.8em;
       color: #aaa;
     }
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 1.8em;
+        font-size: 2em;
       }
 
       .section h2 {
-        font-size: 1.2em;
+        font-size: 1.3em;
       }
 
       .section p {
-        font-size: 0.9em;
+        font-size: 0.95em;
       }
 
       .cta {
@@ -122,22 +128,22 @@
   <!-- Fondo de video -->
   <div class="video-bg">
     <iframe
-      src="https://www.youtube.com/embed/0W1Q1QOFeKs?autoplay=1&mute=1&controls=0&loop=1&playlist=0W1Q1QOFeKs&modestbranding=1&rel=0&showinfo=0"
+      src="https://www.youtube.com/embed/0W1Q1QOFeKs?autoplay=1&mute=1&controls=0&loop=1&playlist=0W1Q1QOFeKs&modestbranding=1&rel=0"
+      frameborder="0"
       allow="autoplay; fullscreen"
       allowfullscreen
     ></iframe>
   </div>
 
-  <!-- Audio (archivo local) -->
+  <!-- Audio local -->
   <audio id="music" autoplay loop>
     <source src="musica.mp3" type="audio/mpeg" />
   </audio>
 
   <script>
-    // Reproduce música tras interacción en algunos navegadores
+    // Reproduce música tras la primera interacción si es necesario
     window.addEventListener('click', () => {
-      const music = document.getElementById('music');
-      music.play().catch(() => {});
+      document.getElementById('music').play().catch(() => {});
     });
   </script>
 
@@ -158,3 +164,4 @@
   </div>
 </body>
 </html>
+
