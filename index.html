@@ -167,7 +167,7 @@
 <body>
 
   <!-- Video de fondo -->
-  <video autoplay muted loop playsinline class="video-bg">
+  <video id="bg-video" autoplay muted loop playsinline class="video-bg">
     <source src="TU LE DA - HUAN62 X LITTLE HOMIE (VIDEO OFICIAL).mp4" type="video/mp4" />
     Tu navegador no soporta video HTML5.
   </video>
@@ -179,15 +179,30 @@
 
   <script>
     const music = document.getElementById('music');
+    const video = document.getElementById('bg-video');
+
     window.addEventListener('DOMContentLoaded', () => {
+      // Reproducir música y video tras interacción en móviles
       music.play().catch(() => {
-        const enableAudio = () => {
+        const enableMedia = () => {
           music.play().catch(() => {});
-          window.removeEventListener('click', enableAudio);
-          window.removeEventListener('touchstart', enableAudio);
+          video.play().catch(() => {});
+          window.removeEventListener('click', enableMedia);
+          window.removeEventListener('touchstart', enableMedia);
         };
-        window.addEventListener('click', enableAudio);
-        window.addEventListener('touchstart', enableAudio);
+        window.addEventListener('click', enableMedia);
+        window.addEventListener('touchstart', enableMedia);
+      });
+
+      // Forzar reproducción del video en móviles
+      video.play().catch(() => {
+        const playVideo = () => {
+          video.play().catch(() => {});
+          window.removeEventListener('click', playVideo);
+          window.removeEventListener('touchstart', playVideo);
+        };
+        window.addEventListener('click', playVideo);
+        window.addEventListener('touchstart', playVideo);
       });
     });
 
@@ -242,4 +257,3 @@
 
 </body>
 </html>
-
