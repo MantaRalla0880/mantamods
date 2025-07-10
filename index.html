@@ -12,11 +12,15 @@
   <meta property="og:url" content="https://TU_USUARIO.github.io/NOMBRE_REPO/" />
   <meta name="theme-color" content="#00ffff" />
 
+  <!-- Iconos Font Awesome -->
+  <script src="https://kit.fontawesome.com/4ad274cfeb.js" crossorigin="anonymous"></script>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
     * {
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -25,7 +29,7 @@
       font-family: 'Poppins', sans-serif;
       background: #000;
       color: #fff;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     .video-bg {
@@ -41,12 +45,11 @@
 
     .container {
       position: relative;
-      width: 100vw;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
       padding: 20px;
     }
@@ -58,36 +61,10 @@
       animation: pulseGlow 2.5s infinite;
     }
 
-    /* Animaciones */
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.08); }
-      100% { transform: scale(1); }
-    }
-
-    @keyframes glow {
-      0%, 100% { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
-      50% { text-shadow: 0 0 20px #fff, 0 0 30px #0ff; }
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(50px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
     @keyframes pulseGlow {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 10px #0ff4;
-      }
-      50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px #0ff;
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 10px #0ff4;
-      }
+      0% { transform: scale(1); box-shadow: 0 0 10px #0ff4; }
+      50% { transform: scale(1.05); box-shadow: 0 0 20px #0ff; }
+      100% { transform: scale(1); box-shadow: 0 0 10px #0ff4; }
     }
 
     header h1 {
@@ -97,64 +74,75 @@
       margin: 0;
     }
 
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+      50% { text-shadow: 0 0 20px #fff, 0 0 30px #0ff; }
+    }
+
+    nav.menu {
+      margin: 20px 0;
+    }
+
+    .menu .cta {
+      margin: 0 10px;
+      background: #0ff;
+      color: #000;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .menu .cta:hover {
+      background: #0cc;
+    }
+
     .section {
       max-width: 800px;
-      margin-top: 20px;
-      animation: slideIn 1s ease-out forwards;
+      margin: 20px auto;
     }
 
     .section h2 {
       font-size: 1.5em;
     }
 
-    .cta {
-      background: #0ff;
-      color: #000;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 0 20px #0ff;
-      text-decoration: none;
+    .rules {
+      display: none;
       margin-top: 20px;
-      display: inline-block;
-      transition: transform 0.3s, background 0.3s;
     }
 
-    .cta:hover {
-      background: #0cc;
-      box-shadow: 0 0 30px #0ff;
-      transform: scale(1.05);
+    .rules ul {
+      text-align: left;
+      max-width: 600px;
+      margin: auto;
+      padding: 0;
     }
 
-    nav {
+    .rules li {
+      margin-bottom: 10px;
+    }
+
+    .social {
       margin-top: 30px;
     }
 
-    nav a {
+    .social a {
       color: #0ff;
-      text-decoration: underline;
-      margin: 0 10px;
-      cursor: pointer;
+      margin: 0 15px;
+      font-size: 1.8em;
+      transition: 0.3s;
     }
 
-    .rules {
-      display: none;
-      background: rgba(0, 0, 0, 0.8);
-      border: 1px solid #0ff;
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 20px;
-      max-width: 600px;
-      text-align: left;
+    .social a:hover {
+      color: #0cc;
     }
 
     footer {
       margin-top: 30px;
       font-size: 0.8em;
       color: #ccc;
-      animation: slideIn 1.2s ease-out forwards;
     }
   </style>
 </head>
@@ -166,7 +154,7 @@
     Tu navegador no soporta video HTML5.
   </video>
 
-  <!-- Música de fondo -->
+  <!-- Música -->
   <audio id="music" loop>
     <source src="musica.mp3" type="audio/mpeg" />
   </audio>
@@ -184,6 +172,11 @@
         window.addEventListener('touchstart', enableAudio);
       });
     });
+
+    function toggleRules() {
+      const rules = document.getElementById('rules');
+      rules.style.display = (rules.style.display === 'none' || rules.style.display === '') ? 'block' : 'none';
+    }
   </script>
 
   <!-- Contenido principal -->
@@ -193,33 +186,47 @@
       <h1>🔥MantaMods🔥</h1>
     </header>
 
+    <!-- Menú -->
+    <nav class="menu">
+      <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 Únete al Discord</a>
+      <a class="cta" href="javascript:void(0)" onclick="toggleRules()">📜 Reglas</a>
+    </nav>
+
+    <!-- Sección de bienvenida -->
     <div class="section">
       <h2>Bienvenido a la comunidad más potente de mods para SA-MP</h2>
       <p>
         Únete a nuestro Discord y mejora tu GTA con mods únicos. ¡Explora lo mejor de SA-MP con 🔥MantaMods🔥!
       </p>
-      <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 Únete al Discord</a>
+    </div>
 
-      <nav>
-        <a onclick="document.getElementById('rules').style.display='block'"># Reglas</a>
-      </nav>
+    <!-- Reglas del Discord -->
+    <div class="section rules" id="rules">
+      <h2>📜 Reglas del Discord</h2>
+      <ul>
+        <li>❌ No spam, flood ni promociones sin permiso.</li>
+        <li>🤝 Respeta a todos los miembros. Nada de insultos, acoso o discriminación.</li>
+        <li>📢 Usa los canales correctamente según su propósito.</li>
+        <li>🔞 Contenido NSFW está prohibido.</li>
+        <li>🛠️ Reporta bugs o comportamientos sospechosos a un moderador.</li>
+        <li>🎮 Diviértete y haz amigos. ¡Este es tu espacio!</li>
+      </ul>
+    </div>
 
-      <div id="rules" class="rules">
-        <h3>Reglas del Discord:</h3>
-        <ul>
-          <li>1. Respeto entre todos los miembros.</li>
-          <li>2. Prohibido spam o publicidad sin permiso.</li>
-          <li>3. Nada de contenido ofensivo o ilegal.</li>
-          <li>4. Usa los canales correctamente.</li>
-          <li>5. Sigue las instrucciones del staff.</li>
-        </ul>
-      </div>
+    <!-- Redes sociales -->
+    <div class="social">
+      <a href="https://www.youtube.com/@MantaRalla0880" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://kick.com/MantaRalla0880" target="_blank" title="Kick"><i class="fas fa-play-circle"></i></a>
+      <a href="https://www.twitch.tv/MantaRalla0880" target="_blank" title="Twitch"><i class="fab fa-twitch"></i></a>
     </div>
 
     <footer>
       🔥MantaMods🔥. Una Vida Única e Inigualable.
     </footer>
   </div>
+
+</body>
+</html>
 
 </body>
 </html>
