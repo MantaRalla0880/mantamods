@@ -18,17 +18,22 @@
       color: #fff;
       text-align: center;
       overflow-x: hidden;
+      position: relative;
     }
 
-    video.background-video {
+    .youtube-bg {
       position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
       z-index: -1;
-      object-fit: cover;
+      pointer-events: none;
       filter: blur(4px) brightness(0.6);
+    }
+
+    .youtube-bg iframe {
+      width: 100vw;
+      height: 100vh;
     }
 
     header {
@@ -82,10 +87,10 @@
   </style>
 </head>
 <body>
-  <!-- Fondo con video -->
-  <video class="background-video" autoplay loop muted playsinline>
-    <source src="https://www.youtube.com/embed/0W1Q1QOFeKs" type="video/mp4" />
-  </video>
+  <!-- Fondo de video YouTube -->
+  <div class="youtube-bg">
+    <iframe src="https://www.youtube.com/embed/0W1Q1QOFeKs?autoplay=1&mute=1&controls=0&loop=1&playlist=0W1Q1QOFeKs&modestbranding=1&showinfo=0&rel=0" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+  </div>
 
   <!-- Audio -->
   <audio id="music" autoplay loop>
@@ -93,7 +98,7 @@
   </audio>
 
   <script>
-    // Autoplay de música en algunos navegadores requiere interacción
+    // Reproduce música con interacción si es necesario
     window.addEventListener('click', () => {
       const music = document.getElementById('music');
       music.play().catch(() => {});
