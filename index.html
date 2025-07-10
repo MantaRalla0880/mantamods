@@ -38,40 +38,6 @@
       z-index: -1;
     }
 
-    /* Redes arriba, sticky */
-    .top-social {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: rgba(0, 0, 0, 0.8);
-      text-align: center;
-      padding: 10px 0 5px;
-      backdrop-filter: blur(5px);
-    }
-
-    .top-social h2 {
-      margin: 0 0 5px;
-      font-size: 2.2em;
-      color: #0ff;
-    }
-
-    .social {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-bottom: 5px;
-    }
-
-    .social a {
-      font-size: 1.8em;
-      text-decoration: none;
-      transition: transform 0.2s;
-    }
-
-    .social a:hover {
-      transform: scale(1.2);
-    }
-
     .container {
       width: 100%;
       min-height: 100vh;
@@ -80,7 +46,36 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 100px 20px 40px; /* espacio para las redes arriba */
+      padding: 40px 20px 60px;
+    }
+
+    /* Redes normales, arriba del todo */
+    .redes-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .redes-section h2 {
+      font-size: 2.4em;
+      color: #00faff;
+      margin-bottom: 10px;
+    }
+
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+
+    .social a {
+      font-size: 1.9em;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .social a:hover {
+      transform: scale(1.2);
     }
 
     header img {
@@ -192,7 +187,7 @@
   </script>
 
   <!-- Redes Sociales -->
-  <div class="top-social">
+  <div class="redes-section">
     <h2>Redes</h2>
     <div class="social">
       <a href="https://www.youtube.com/@MantaRalla0880" target="_blank" title="YouTube">📺</a>
