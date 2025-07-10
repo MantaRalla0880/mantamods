@@ -8,18 +8,15 @@
   <!-- Vista previa para Discord -->
   <meta property="og:title" content="🔥MantaMods🔥 - Mods Para SA-MP" />
   <meta property="og:description" content="Únete a nuestro Discord y mejora tu GTA con mods únicos. ¡Explora lo mejor de SA-MP con 🔥MantaMods🔥!" />
-  <meta property="og:image" content="https://TU_USUARIO.github.io/NOMBRE_REPO/static.png" />
-  <meta property="og:url" content="https://TU_USUARIO.github.io/NOMBRE_REPO/" />
+  <meta property="og:image" content="https://mantamods.github.io/static.png" />
+  <meta property="og:url" content="https://mantamods.github.io/" />
   <meta name="theme-color" content="#00ffff" />
-
-  <script src="https://kit.fontawesome.com/4ad274cfeb.js" crossorigin="anonymous"></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
     * {
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
 
     body {
@@ -28,7 +25,7 @@
       font-family: 'Poppins', sans-serif;
       background: #000;
       color: #fff;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
     .video-bg {
@@ -39,49 +36,75 @@
       min-height: 100vh;
       object-fit: cover;
       z-index: -1;
-      filter: blur(4px) brightness(0.6);
     }
 
     .container {
       position: relative;
-      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 20px;
-      padding-top: 100px;
+    }
+
+    .top-social {
+      position: fixed;
+      top: 10px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .top-social h2 {
+      margin: 0 0 10px;
+      font-size: 2em;
+      color: #0ff;
+    }
+
+    .social a {
+      font-size: 1.8em;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .social a:hover {
+      transform: scale(1.2);
     }
 
     header img {
       width: 120px;
       border-radius: 20%;
       margin-bottom: 10px;
-      animation: pulseGlow 2.5s infinite;
-    }
-
-    @keyframes pulseGlow {
-      0% { transform: scale(1); box-shadow: 0 0 10px #0ff4; }
-      50% { transform: scale(1.05); box-shadow: 0 0 20px #0ff; }
-      100% { transform: scale(1); box-shadow: 0 0 10px #0ff4; }
+      animation: pulseGlow 2s infinite alternate;
     }
 
     header h1 {
       font-size: 3em;
       color: #0ff;
-      animation: glow 2s ease-in-out infinite;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
       margin: 0;
     }
 
-    @keyframes glow {
-      0%, 100% { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
-      50% { text-shadow: 0 0 20px #fff, 0 0 30px #0ff; }
+    @keyframes pulseGlow {
+      0% {
+        filter: brightness(1) drop-shadow(0 0 10px #0ff);
+      }
+      100% {
+        filter: brightness(1.4) drop-shadow(0 0 25px #0ff);
+      }
     }
 
     .section {
       max-width: 800px;
       margin-top: 20px;
+    }
+
+    .section h2 {
+      font-size: 1.5em;
     }
 
     .cta {
@@ -91,74 +114,32 @@
       font-size: 1.2em;
       border: none;
       border-radius: 10px;
-      cursor: pointer;
       box-shadow: 0 0 20px #0ff;
       text-decoration: none;
-      margin: 10px 0;
-      display: inline-block;
-      transition: 0.3s;
-    }
-
-    .cta:hover {
-      background: #0cc;
-    }
-
-    .rules {
-      display: none;
       margin-top: 20px;
-      padding: 20px;
+      display: inline-block;
+    }
+
+    .rules-btn {
+      background: transparent;
+      border: 2px solid #0ff;
+      color: #0ff;
+      padding: 10px 25px;
+      font-size: 1em;
+      border-radius: 10px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .rules-box {
+      display: none;
+      background: rgba(0, 0, 0, 0.85);
       border: 2px solid #0ff;
       border-radius: 10px;
-      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
       max-width: 600px;
-      box-shadow: 0 0 30px #0ff3;
-    }
-
-    .rules h2 {
-      margin-top: 0;
-    }
-
-    .rules ul {
+      margin: 20px auto;
       text-align: left;
-      padding-left: 20px;
-    }
-
-    .rules li {
-      margin-bottom: 10px;
-    }
-
-    .social {
-      text-align: center;
-    }
-
-    .social a {
-      color: #0ff;
-      margin: 0 15px;
-      font-size: 1.8em;
-      transition: 0.3s;
-      text-decoration: none;
-    }
-
-    .social a:hover {
-      color: #fff;
-    }
-
-    .top-social {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 10px 20px;
-      border-bottom: 2px solid #0ff;
-      border-radius: 0 0 10px 10px;
-    }
-
-    .top-social h3 {
-      margin: 0 0 5px;
-      font-size: 1.2em;
-      color: #0ff;
     }
 
     footer {
@@ -176,7 +157,7 @@
     Tu navegador no soporta video HTML5.
   </video>
 
-  <!-- Música -->
+  <!-- Música de fondo -->
   <audio id="music" loop>
     <source src="musica.mp3" type="audio/mpeg" />
   </audio>
@@ -196,14 +177,14 @@
     });
 
     function toggleRules() {
-      const rules = document.getElementById('rules');
-      rules.style.display = (rules.style.display === 'none' || rules.style.display === '') ? 'block' : 'none';
+      const box = document.getElementById('rules-box');
+      box.style.display = box.style.display === 'block' ? 'none' : 'block';
     }
   </script>
 
   <!-- Redes Sociales -->
   <div class="top-social">
-    <h3>Redes</h3>
+    <h2>Redes</h2>
     <div class="social">
       <a href="https://www.youtube.com/@MantaRalla0880" target="_blank" title="YouTube">📺</a>
       <a href="https://kick.com/MantaRalla0880" target="_blank" title="Kick">🎮</a>
@@ -220,24 +201,23 @@
 
     <div class="section">
       <h2>Bienvenido a la comunidad más potente de mods para SA-MP</h2>
-      <p>Únete a nuestro Discord y mejora tu GTA con mods únicos. ¡Explora lo mejor de SA-MP con 🔥MantaMods🔥!</p>
-    </div>
-
-    <!-- Botones -->
-    <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 Únete al Discord</a>
-    <a class="cta" href="javascript:void(0)" onclick="toggleRules()">📜 Reglas del servidor</a>
-
-    <!-- Reglas -->
-    <div class="rules" id="rules">
-      <h2>📜 Reglas del Discord</h2>
-      <ul>
-        <li>❌ No spam, flood ni promociones sin permiso.</li>
-        <li>🤝 Respeta a todos los miembros. Nada de insultos, acoso o discriminación.</li>
-        <li>📢 Usa los canales correctamente según su propósito.</li>
-        <li>🔞 Contenido NSFW está prohibido.</li>
-        <li>🛠️ Reporta bugs o comportamientos sospechosos a un moderador.</li>
-        <li>🎮 Diviértete y haz amigos. ¡Este es tu espacio!</li>
-      </ul>
+      <p>
+        Únete a nuestro Discord para explorar mods y modificaciones extremas que harán brillar tu GTA.
+        También puedes hacer amigos nuevos y adentrarte en todos los sistemas que tenemos.
+        ¡Aquí los mods son únicos!
+      </p>
+      <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 ÚNETE AL DISCORD</a><br/>
+      <button class="rules-btn" onclick="toggleRules()">📜 Reglas del Discord</button>
+      <div class="rules-box" id="rules-box">
+        <ul>
+          <li>✅ Respeto mutuo entre todos los miembros.</li>
+          <li>🚫 Prohibido hacer spam o flood.</li>
+          <li>🛑 Nada de contenido NSFW o ilegal.</li>
+          <li>📢 No promociones sin permiso del staff.</li>
+          <li>🎮 Usa los canales para su propósito.</li>
+          <li>⚠️ El incumplimiento puede llevar a sanciones.</li>
+        </ul>
+      </div>
     </div>
 
     <footer>
@@ -245,7 +225,5 @@
     </footer>
   </div>
 
-</body>
-</html>
 </body>
 </html>
