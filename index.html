@@ -74,8 +74,13 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes giro {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     .logo-animado {
-      animation: pulse 2s infinite;
+      animation: giro 10s linear infinite;
     }
 
     header h1 {
