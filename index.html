@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MantaMods - Servidor Discord</title>
+  <title>🔥MantaMods🔥 - Mods Para SA-MP</title>
 
   <!-- Vista previa para Discord -->
   <meta property="og:title" content="🔥MantaMods🔥 - Mods Para SA-MP" />
@@ -55,6 +55,7 @@
       width: 120px;
       border-radius: 20%;
       margin-bottom: 10px;
+      animation: pulseGlow 2.5s infinite;
     }
 
     /* Animaciones */
@@ -74,13 +75,19 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes giro {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .logo-animado {
-      animation: giro 10s linear infinite;
+    @keyframes pulseGlow {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #0ff4;
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #0ff;
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #0ff4;
+      }
     }
 
     header h1 {
@@ -112,13 +119,19 @@
       text-decoration: none;
       margin-top: 20px;
       display: inline-block;
-      transition: transform 0.3s;
+      transition: transform 0.3s, background 0.3s;
+      animation: bounce 2s infinite;
     }
 
     .cta:hover {
       background: #0cc;
       box-shadow: 0 0 30px #0ff;
       transform: scale(1.05);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     footer {
@@ -160,14 +173,14 @@
   <!-- Contenido principal -->
   <div class="container">
     <header>
-      <img src="static.png" alt="Logo MantaMods" class="logo-animado" />
+      <img src="static.png" alt="Logo MantaMods" />
       <h1>🔥MantaMods🔥</h1>
     </header>
 
     <div class="section">
       <h2>Bienvenido a la comunidad más potente de mods para SA-MP</h2>
       <p>
-        Únete a nuestro Discord para explorar mods y modificaciones extremas que harán brillar tu GTA.
+         Únete a nuestro Discord para explorar mods y modificaciones extremas que harán brillar tu GTA.
         También puedes hacer amigos nuevos y adentrarte en todos los sistemas que tenemos.
         ¡Aquí los mods son únicos!
       </p>
