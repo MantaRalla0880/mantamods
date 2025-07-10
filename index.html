@@ -12,7 +12,6 @@
   <meta property="og:url" content="https://TU_USUARIO.github.io/NOMBRE_REPO/" />
   <meta name="theme-color" content="#00ffff" />
 
-  <!-- Font Awesome para iconos -->
   <script src="https://kit.fontawesome.com/4ad274cfeb.js" crossorigin="anonymous"></script>
 
   <style>
@@ -128,8 +127,7 @@
     }
 
     .social {
-      margin-top: 20px;
-      margin-bottom: 10px;
+      margin-top: 10px;
       text-align: center;
     }
 
@@ -147,10 +145,17 @@
 
     .top-social {
       position: absolute;
-      top: 20px;
+      top: 15px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
+    }
+
+    .top-social h3 {
+      margin: 0;
+      margin-bottom: 5px;
+      font-size: 1em;
+      color: #ccc;
     }
 
     footer {
@@ -193,11 +198,14 @@
     }
   </script>
 
-  <!-- Redes Sociales arriba -->
-  <div class="top-social social">
-    <a href="https://www.youtube.com/@MantaRalla0880" target="_blank" title="YouTube">📺</a>
-    <a href="https://kick.com/MantaRalla0880" target="_blank" title="Kick">🎮</a>
-    <a href="https://www.twitch.tv/MantaRalla0880" target="_blank" title="Twitch">📡</a>
+  <!-- Redes Sociales -->
+  <div class="top-social">
+    <h3>🌐 Redes</h3>
+    <div class="social">
+      <a href="https://www.youtube.com/@MantaRalla0880" target="_blank" title="YouTube">🔴</a>
+      <a href="https://kick.com/MantaRalla0880" target="_blank" title="Kick">🟢</a>
+      <a href="https://www.twitch.tv/MantaRalla0880" target="_blank" title="Twitch">🟣</a>
+    </div>
   </div>
 
   <!-- Contenido principal -->
@@ -209,12 +217,14 @@
 
     <div class="section">
       <h2>Bienvenido a la comunidad más potente de mods para SA-MP</h2>
-      <p>Únete a nuestro Discord y mejora tu GTA con mods únicos. ¡Explora lo mejor de SA-MP con 🔥MantaMods🔥!</p>
+      <p> Únete a nuestro Discord para explorar mods y modificaciones extremas que harán brillar tu GTA.
+        También puedes hacer amigos nuevos y adentrarte en todos los sistemas que tenemos.
+        ¡Aquí los mods son únicos!</p>
     </div>
 
     <!-- Botones -->
     <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 Únete al Discord</a>
-    <a class="cta" href="javascript:void(0)" onclick="toggleRules()">📜 Reglas del servidor</a>
+    <a class="cta" href="javascript:void(0)" onclick="toggleRules()">📜 Reglas del Discord</a>
 
     <!-- Reglas -->
     <div class="rules" id="rules">
@@ -233,10 +243,6 @@
       🔥MantaMods🔥. Una Vida Única e Inigualable.
     </footer>
   </div>
-
-</body>
-</html>
-
 
 </body>
 </html>
