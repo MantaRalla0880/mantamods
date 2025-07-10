@@ -25,7 +25,7 @@
       font-family: 'Poppins', sans-serif;
       background: #000;
       color: #fff;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     .video-bg {
@@ -38,28 +38,32 @@
       z-index: -1;
     }
 
+    /* Redes arriba, sticky */
     .top-social {
-      position: fixed;
-      top: 10px;
-      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.8);
       text-align: center;
-      z-index: 1000;
-      background: transparent;
+      padding: 10px 0 5px;
+      backdrop-filter: blur(5px);
     }
 
     .top-social h2 {
-      margin: 0 0 10px;
+      margin: 0 0 5px;
       font-size: 2.2em;
       color: #0ff;
     }
 
     .social {
-      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 5px;
     }
 
     .social a {
       font-size: 1.8em;
-      margin: 0 15px;
       text-decoration: none;
       transition: transform 0.2s;
     }
@@ -69,15 +73,14 @@
     }
 
     .container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
+      padding: 100px 20px 40px; /* espacio para las redes arriba */
     }
 
     header img {
@@ -163,7 +166,7 @@
     Tu navegador no soporta video HTML5.
   </video>
 
-  <!-- Música de fondo -->
+  <!-- Música -->
   <audio id="music" loop>
     <source src="musica.mp3" type="audio/mpeg" />
   </audio>
@@ -192,9 +195,9 @@
   <div class="top-social">
     <h2>Redes</h2>
     <div class="social">
-      <a href="https://www.youtube.com/@MantaRalla0880" target="_blank" title="YouTube">🔴</a>
-      <a href="https://kick.com/MantaRalla0880" target="_blank" title="Kick">🟢</a>
-      <a href="https://www.twitch.tv/MantaRalla0880" target="_blank" title="Twitch">🟣</a>
+      <a href="https://www.youtube.com/@MantaRalla0880" target="_blank" title="YouTube">📺</a>
+      <a href="https://kick.com/MantaRalla0880" target="_blank" title="Kick">🎮</a>
+      <a href="https://www.twitch.tv/MantaRalla0880" target="_blank" title="Twitch">📡</a>
     </div>
   </div>
 
@@ -230,10 +233,6 @@
       🔥MantaMods🔥. Una Vida Única e Inigualable.
     </footer>
   </div>
-
-</body>
-</html>
-
 
 </body>
 </html>
