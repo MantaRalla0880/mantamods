@@ -15,9 +15,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -88,18 +86,21 @@
 
     header h1 {
       font-size: 3em;
-      color: #0ff;
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
       margin: 0;
+      animation: rgbCycle 5s linear infinite;
     }
 
     @keyframes pulseGlow {
-      0% {
-        filter: brightness(1) drop-shadow(0 0 10px #0ff);
-      }
-      100% {
-        filter: brightness(1.4) drop-shadow(0 0 25px #0ff);
-      }
+      0% { filter: brightness(1) drop-shadow(0 0 10px #0ff); }
+      100% { filter: brightness(1.4) drop-shadow(0 0 25px #0ff); }
+    }
+
+    @keyframes rgbCycle {
+      0%   { color: red; }
+      25%  { color: orange; }
+      50%  { color: lime; }
+      75%  { color: cyan; }
+      100% { color: red; }
     }
 
     .section {
@@ -136,11 +137,7 @@
       cursor: pointer;
       transition: background 0.3s ease, box-shadow 0.3s ease;
       margin-top: 10px;
-    }
-
-    .rules-btn:hover, .plantilla-btn:hover {
-      background: #00c9c9;
-      box-shadow: 0 0 25px #0ff;
+      animation: rgbCycle 5s linear infinite;
     }
 
     .rules-box, .plantilla-box {
@@ -182,9 +179,7 @@
     }
 
     @media (min-width: 768px) {
-      #startBtn {
-        display: none;
-      }
+      #startBtn { display: none; }
     }
 
     footer {
@@ -196,16 +191,12 @@
 </head>
 <body>
 
-  <!-- Botón de iniciar para móviles -->
   <button id="startBtn" onclick="startMedia()">▶️ Tocar para iniciar</button>
 
-  <!-- Video de fondo -->
   <video id="bg-video" autoplay muted loop playsinline class="video-bg">
     <source src="Video2.mp4" type="video/mp4" />
-    Tu navegador no soporta video HTML5.
   </video>
 
-  <!-- Música -->
   <audio id="music" loop>
     <source src="Musicas.mp3" type="audio/mpeg" />
   </audio>
@@ -236,7 +227,6 @@
     });
   </script>
 
-  <!-- Redes Sociales -->
   <div class="redes-section">
     <h2>Redes</h2>
     <div class="social">
@@ -246,7 +236,6 @@
     </div>
   </div>
 
-  <!-- Contenido principal -->
   <div class="container">
     <header>
       <img src="static.png" alt="Logo MantaMods" />
@@ -262,13 +251,11 @@
       </p>
       <a class="cta" href="https://discord.gg/HqfjQcbDZr" target="_blank">💬 ÚNETE AL DISCORD</a><br/>
 
-      <!-- Botones en columna -->
       <div style="display: flex; flex-direction: column; align-items: center;">
         <button class="rules-btn" onclick="toggleRules()">📜 Reglas De 🔥MantaMods🔥</button>
         <button class="plantilla-btn" onclick="togglePlantilla()">📋 Plantilla De 🔥MantaMods🔥</button>
       </div>
 
-      <!-- Caja de reglas -->
       <div class="rules-box" id="rules-box">
         <ul>
           <li>✅ Respeto mutuo entre todos los miembros.</li>
@@ -280,7 +267,6 @@
         </ul>
       </div>
 
-      <!-- Caja de plantilla -->
       <div class="plantilla-box" id="plantilla-box">
 🎮 Bienvenido a
 
@@ -326,6 +312,4 @@ Aquí no solo jugamos... CREAMOS ESTILO 💯
     </footer>
   </div>
 </body>
-</html>
-
 </html>
